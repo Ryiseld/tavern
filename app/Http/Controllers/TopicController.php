@@ -20,8 +20,8 @@ class TopicController extends Controller
 
     public function create(Request $request) {
     	$this->validate($request, [
-    		'title' => 'required|min:3|max:80',
-    		'content' => 'required'
+    		'title' => 'required|min:2|max:80',
+    		'content' => 'required|min:2'
     	]);
 
     	$user = Auth::user();
@@ -47,8 +47,8 @@ class TopicController extends Controller
             return redirect('/');
 
         $this->validate($request, [
-            'title' => 'required|min:3|max:80',
-            'content' => 'required'
+            'title' => 'required|min:2|max:80',
+            'content' => 'required|min:2'
         ]);
 
         $topic->update([
@@ -58,5 +58,17 @@ class TopicController extends Controller
 
         \Session::flash('success', 'Your topic has been updated!');
         return redirect()->route('topic', ['topic' => $topic]);
+    }
+
+    public function delete(Topic $topic) {
+        if (Auth::user() != $topic->user)
+            return redirect('/');
+
+        if (Topic::where('id', $topic->id)->firstOrFail()->delete()) {
+            \Session::flash('success', 'Your topic has been deleted!');
+            return redirect('/');
+        } else {
+            return redirect('/');
+        }
     }
 }
