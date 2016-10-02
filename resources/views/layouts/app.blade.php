@@ -19,6 +19,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
     @include('layouts.partials._navbar')
@@ -27,5 +28,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>

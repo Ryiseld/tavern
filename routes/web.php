@@ -22,4 +22,5 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::post('/topic/create', 'TopicController@create');
 	Route::get('/topic/edit/{topic}', 'TopicController@edit');
 	Route::post('/topic/update/{topic}', 'TopicController@update');
+	Route::get('/topic/delete/{topic}', 'TopicController@delete');
 });

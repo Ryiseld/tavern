@@ -41,8 +41,9 @@
 
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-5 col-md-offset-4">
                                 <input type="submit" class="btn btn-primary" value="Update Topic">
+                                <button class="btn btn-danger delete" href="{{ url('/topic/delete/' . $topic->id) }}">Delete Topic</button>
                             </div>
                         </div>
                     </form>
