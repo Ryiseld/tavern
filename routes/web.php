@@ -11,6 +11,7 @@
 |
 */
 Route::pattern('topic', '[0-9]+');
+Route::pattern('user', '[0-9]+');
 
 Auth::routes();
 
@@ -19,6 +20,10 @@ Route::get('/', 'HomeController@index');
 Route::get('/topic/{topic}', ['as' => 'topic', 'uses' => 'TopicController@show']);
 
 Route::group(['middleware' => ['auth']], function() {
+	// User
+	Route::get('/user/{user}/edit', 'UserController@edit');
+	Route::post('/user/{user}/update', 'UserController@update');
+
 	// Topic
 	Route::get('/topic/new', 'TopicController@new');
 	Route::post('/topic/create', 'TopicController@create');
