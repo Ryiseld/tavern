@@ -8,7 +8,7 @@
                 <div class="panel-heading">Edit Topic</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/topic/update/' . $topic->id) }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/topic/' . $topic->id . '/update') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <div class="col-md-5 col-md-offset-4">
                                 <input type="submit" class="btn btn-primary" value="Update Topic">
-                                <button class="btn btn-danger delete" href="{{ url('/topic/delete/' . $topic->id) }}">Delete Topic</button>
+                                <button class="btn btn-danger delete" href="{{ url('/topic/' . $topic->id . '/delete') }}">Delete Topic</button>
                             </div>
                         </div>
                     </form>

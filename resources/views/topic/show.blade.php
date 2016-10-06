@@ -15,7 +15,7 @@
                     <p style="font-style: italic; margin-top: 1em">By {{ $topic->user->name }} at {{ $topic->created_at->format('d/m/Y h:m') }}</p>
 
                     @if (!Auth::guest() && Auth::user()->id == $topic->user->id)
-                        <a href="{{ url('/topic/edit/' . $topic->id) }}">Edit Topic</a>
+                        <a href="{{ url('/topic/' . $topic->id . '/edit') }}">Edit Topic</a>
                     @endif
                 </div>
             </div>

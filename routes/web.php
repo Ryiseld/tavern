@@ -10,17 +10,19 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+Route::pattern('topic', '[0-9]+');
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/topic/show/{topic}', ['as' => 'topic', 'uses' => 'TopicController@show']);
+Route::get('/topic/{topic}', ['as' => 'topic', 'uses' => 'TopicController@show']);
 
 Route::group(['middleware' => ['auth']], function() {
 	// Topic
 	Route::get('/topic/new', 'TopicController@new');
 	Route::post('/topic/create', 'TopicController@create');
-	Route::get('/topic/edit/{topic}', 'TopicController@edit');
-	Route::post('/topic/update/{topic}', 'TopicController@update');
-	Route::get('/topic/delete/{topic}', 'TopicController@delete');
+	Route::get('/topic/{topic}/edit', 'TopicController@edit');
+	Route::post('/topic/{topic}/update', 'TopicController@update');
+	Route::get('/topic/{topic}/delete', 'TopicController@delete');
 });

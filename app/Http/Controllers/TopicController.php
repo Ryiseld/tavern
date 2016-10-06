@@ -19,10 +19,7 @@ class TopicController extends Controller
     }
 
     public function create(Request $request) {
-    	$this->validate($request, [
-    		'title' => 'required|min:2|max:80',
-    		'content' => 'required|min:2'
-    	]);
+    	$this->validateRequest($request);
 
     	$user = Auth::user();
     	$topic = new Topic;
@@ -46,10 +43,7 @@ class TopicController extends Controller
         if (Auth::user() != $topic->user)
             return redirect('/');
 
-        $this->validate($request, [
-            'title' => 'required|min:2|max:80',
-            'content' => 'required|min:2'
-        ]);
+        $this->validateRequest($request);
 
         $topic->update([
             'title' => $request->title,
@@ -70,5 +64,12 @@ class TopicController extends Controller
         } else {
             return redirect('/');
         }
+    }
+
+    protected function validateRequest(Request $request) {
+        $this->validate($request, [
+            'title' => 'required|min:2|max:80',
+            'content' => 'required|min:2'
+        ]);
     }
 }

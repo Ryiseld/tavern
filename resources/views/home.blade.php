@@ -12,7 +12,7 @@
                 <div class="panel-body">
                     <ul>
                     @foreach ($topics as $topic)
-                        <li><a href="{{ url('/topic/show/' . $topic->id) }}">{{ $topic->title }}</a></li>
+                        <li><a href="{{ url('/topic/' . $topic->id) }}">{{ $topic->title }}</a></li>
                     @endforeach
                     </ul>
                 </div>
