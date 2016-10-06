@@ -56,7 +56,7 @@
                         <div class="form-group">
                             <div class="col-md-5 col-md-offset-4">
                                 <input type="submit" class="btn btn-primary" value="Update Settings">
-                                <button class="btn btn-danger delete" href="{{ url('/user/' . $user->id . '/delete') }}">Delete User</button>
+                                <button class="btn btn-danger delete" href="{{ url('/user/' . $user->id . '/delete') }}">Delete Account</button>
                             </div>
                         </div>
                     </form>

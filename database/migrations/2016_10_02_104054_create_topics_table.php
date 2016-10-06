@@ -31,6 +31,9 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
+       // Schema::dropIfExists('users');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('topics');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
