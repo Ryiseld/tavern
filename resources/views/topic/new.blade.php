@@ -12,9 +12,9 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                            <label for="title" class="col-md-4 control-label">Title</label>
+                            <label for="title" class="col-md-2 control-label">Title</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <input id="title" type="title" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
 
                                 @if ($errors->has('title'))
@@ -26,10 +26,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                            <label for="content" class="col-md-4 control-label">Content</label>
+                            <label for="content" class="col-md-2 control-label">Content</label>
 
-                            <div class="col-md-6">
-                                <textarea name="content" id="content" class="form-control">{{ old('content') }}</textarea>
+                            <div class="col-md-10">
+                                <textarea name="content" id="content" class="form-control tinymce">{{ old('content') }}</textarea>
 
                                 @if ($errors->has('content'))
                                     <span class="help-block">
