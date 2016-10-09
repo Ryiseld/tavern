@@ -22,6 +22,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.4.3/tinymce.min.js"></script>
+    <script src="https://use.fontawesome.com/3d5c01ed12.js"></script>
 </head>
 <body>
     @include('layouts.partials._navbar')
