@@ -10,13 +10,25 @@
                 <div class="panel-heading">{{ $topic->title }}</div>
 
                 <div class="panel-body">
-                    {!! $topic->content !!}
+                    <div class="col-md-2" style="text-align: center; border-right: 1px solid #dedede">
+                        <img src="{{ $topic->user->gravatar }}" alt="{{ $topic->user->name }}">
 
-                    <p style="font-style: italic; margin-top: 1em">By {{ $topic->user->name }} at {{ $topic->created_at->format('d/m/Y h:m') }}</p>
+                        <div style="margin-top: 2rem">
+                            <p>{{ $topic->user->name }}</p>
+                            <p style="font-style: italic">{{ $topic->created_at->format('d/m/Y h:m') }}</p>
+                            @if (!Auth::guest() && Auth::user()->id == $topic->user->id)
+                                <p>
+                                    <a href="{{ url('/topic/' . $topic->id . '/edit') }}">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                                    </a>
+                                </p>
+                            @endif
+                        </div>
+                    </div>
 
-                    @if (!Auth::guest() && Auth::user()->id == $topic->user->id)
-                        <a href="{{ url('/topic/' . $topic->id . '/edit') }}">Edit Topic</a>
-                    @endif
+                    <div class="col-md-10">
+                        {!! $topic->content !!}
+                    </div>
                 </div>
             </div>
         </div>
