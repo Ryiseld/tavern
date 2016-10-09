@@ -10,7 +10,7 @@
                 <div class="panel-heading">{{ $topic->title }}</div>
 
                 <div class="panel-body">
-                    {{ $topic->content }}
+                    {!! $topic->content !!}
 
                     <p style="font-style: italic; margin-top: 1em">By {{ $topic->user->name }} at {{ $topic->created_at->format('d/m/Y h:m') }}</p>
 

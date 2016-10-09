@@ -20,6 +20,7 @@
         ]); ?>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.4.3/tinymce.min.js"></script>
 </head>
 <body>
     @include('layouts.partials._navbar')
@@ -29,5 +30,6 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/tinymce.js"></script>
 </body>
 </html>
