@@ -12,7 +12,7 @@ use App\Http\Requests;
 class TopicController extends Controller
 {
 	public function show(Topic $topic) {
-        $replies = Reply::where('topic_id', $topic->id)->orderBy('created_at', 'desc')->paginate('10');
+        $replies = Reply::where('topic_id', $topic->id)->orderBy('created_at', 'asc')->paginate('10');
 		return view('topic.show', ['topic' => $topic, 'replies' => $replies]);
 	}
 
