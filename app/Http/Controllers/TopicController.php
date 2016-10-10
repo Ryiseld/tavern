@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Topic;
+use App\Reply;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ use App\Http\Requests;
 class TopicController extends Controller
 {
 	public function show(Topic $topic) {
-		return view('topic.show', ['topic' => $topic]);
+        $replies = Reply::where('topic_id', $topic->id)->orderBy('created_at', 'desc')->paginate('10');
+		return view('topic.show', ['topic' => $topic, 'replies' => $replies]);
 	}
 
     public function new() {
@@ -28,7 +30,7 @@ class TopicController extends Controller
     	$topic->user_id = $user->id;
     	$topic->save();
 
-    	\Session::flash('success', 'Your topic has been created!');
+    	\Session::flash('success', 'Your topic has been successfully created!');
     	return redirect()->route('topic', ['topic' => $topic]);
     }
 
@@ -50,7 +52,7 @@ class TopicController extends Controller
             'content' => $request->content
         ]);
 
-        \Session::flash('success', 'Your topic has been updated!');
+        \Session::flash('success', 'Your topic has been successfullyupdated!');
         return redirect()->route('topic', ['topic' => $topic]);
     }
 
@@ -59,7 +61,7 @@ class TopicController extends Controller
             return redirect('/');
 
         if (Topic::where('id', $topic->id)->firstOrFail()->delete()) {
-            \Session::flash('success', 'Your topic has been deleted!');
+            \Session::flash('success', 'Your topic has been successfullyupdateddeleted!');
             return redirect('/');
         } else {
             return redirect('/');

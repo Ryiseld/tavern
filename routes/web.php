@@ -10,8 +10,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::pattern('topic', '[0-9]+');
 Route::pattern('user', '[0-9]+');
+Route::pattern('topic', '[0-9]+');
+Route::pattern('reply', '[0-9]+');
 
 Auth::routes();
 
@@ -31,4 +32,10 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/topic/{topic}/edit', 'TopicController@edit');
 	Route::post('/topic/{topic}/update', 'TopicController@update');
 	Route::get('/topic/{topic}/delete', 'TopicController@delete');
+
+	// Reply
+	Route::post('/topic/{topic}/reply/create', 'ReplyController@create');
+	Route::get('/reply/{reply}/edit', 'ReplyController@edit');
+	Route::post('/reply/{reply}/update', 'ReplyController@update');
+	Route::get('/reply/{reply}/delete', 'ReplyController@delete');
 });

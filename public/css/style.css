@@ -1,0 +1,27 @@
+#topics-list {
+	list-style: none;
+}
+
+#topics-list li {
+	border-bottom: 1px solid #f0f0f0;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+.paginate {
+	text-align: center;
+}
+
+.topic-sidebar {
+	text-align: center;
+}
+
+.reply {
+	border-top: 1px solid #f0f0f0;
+	padding-top: 2rem;
+}
+
+.topic-reply {
+	border-top: 1px solid #dedede;
+	margin-top: 2rem;
+}

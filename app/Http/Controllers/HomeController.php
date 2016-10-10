@@ -7,12 +7,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function __construct() {
-        
-    }
-
     public function index() {
-    	$topics = Topic::orderBy('created_at', 'desc')->get();
+    	$topics = Topic::orderBy('created_at', 'desc')->paginate(15);
         return view('home', ['topics' => $topics]);
     }
 }
