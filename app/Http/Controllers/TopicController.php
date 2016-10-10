@@ -30,7 +30,7 @@ class TopicController extends Controller
     	$topic->user_id = $user->id;
     	$topic->save();
 
-    	\Session::flash('success', 'Your topic has been created!');
+    	\Session::flash('success', 'Your topic has been successfully created!');
     	return redirect()->route('topic', ['topic' => $topic]);
     }
 
@@ -52,7 +52,7 @@ class TopicController extends Controller
             'content' => $request->content
         ]);
 
-        \Session::flash('success', 'Your topic has been updated!');
+        \Session::flash('success', 'Your topic has been successfullyupdated!');
         return redirect()->route('topic', ['topic' => $topic]);
     }
 
@@ -61,7 +61,7 @@ class TopicController extends Controller
             return redirect('/');
 
         if (Topic::where('id', $topic->id)->firstOrFail()->delete()) {
-            \Session::flash('success', 'Your topic has been deleted!');
+            \Session::flash('success', 'Your topic has been successfullyupdateddeleted!');
             return redirect('/');
         } else {
             return redirect('/');

@@ -6,7 +6,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="{{ url()->previous() }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>&nbsp;
+                    <a href="{{ url('/topic/' . $topic->id) }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>&nbsp;
                     Edit Topic
                 </div>
 
@@ -44,7 +44,7 @@
 
 
                         <div class="form-group">
-                            <div class="col-md-5 col-md-offset-4">
+                            <div class="col-md-offset-5">
                                 <input type="submit" class="btn btn-primary" value="Update Topic">
                                 <button class="btn btn-danger delete" href="{{ url('/topic/' . $topic->id . '/delete') }}">Delete Topic</button>
                             </div>

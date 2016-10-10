@@ -61,6 +61,10 @@
                     <div class="paginate">
                         {{ $replies->links() }}
                     </div>
+
+                    @if(!Auth::guest())
+                        @include('layouts.partials._reply_new')
+                    @endif
                 </div>
             </div>
         </div>

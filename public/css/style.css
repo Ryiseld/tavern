@@ -20,3 +20,8 @@
 	border-top: 1px solid #f0f0f0;
 	padding-top: 2rem;
 }
+
+.topic-reply {
+	border-top: 1px solid #dedede;
+	margin-top: 2rem;
+}
