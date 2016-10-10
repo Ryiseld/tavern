@@ -29,6 +29,8 @@
 
     @yield('content')
 
+    @include('layouts.partials._footer')
+
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="/js/script.js"></script>
