@@ -7,7 +7,7 @@
             @include('layouts.partials._messages')
             
             <div class="panel panel-default">
-                <div class="panel-heading">{{ $topic->title }}</div>
+                <div class="panel-heading"><h4>{{ $topic->title }}</h4></div>
 
                 <div class="panel-body">
                     <div class="row">
@@ -57,6 +57,10 @@
                             </div>
                         </div>
                     @endforeach
+    
+                    <div class="paginate">
+                        {{ $replies->links() }}
+                    </div>
                 </div>
             </div>
         </div>
