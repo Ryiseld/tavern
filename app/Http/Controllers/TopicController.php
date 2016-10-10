@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Topic;
+use App\Reply;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ use App\Http\Requests;
 class TopicController extends Controller
 {
 	public function show(Topic $topic) {
-		return view('topic.show', ['topic' => $topic]);
+        $replies = Reply::where('topic_id', $topic->id)->orderBy('created_at', 'desc')->get();
+		return view('topic.show', ['topic' => $topic, 'replies' => $replies]);
 	}
 
     public function new() {

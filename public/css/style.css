@@ -11,3 +11,12 @@
 .paginate {
 	text-align: center;
 }
+
+.topic-sidebar {
+	text-align: center;
+}
+
+.reply {
+	border-top: 1px solid #f0f0f0;
+	padding-top: 2rem;
+}
