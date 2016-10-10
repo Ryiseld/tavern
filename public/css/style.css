@@ -1,0 +1,13 @@
+#topics-list {
+	list-style: none;
+}
+
+#topics-list li {
+	border-bottom: 1px solid #f0f0f0;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+}
+
+.paginate {
+	text-align: center;
+}

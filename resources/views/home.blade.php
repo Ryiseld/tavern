@@ -10,11 +10,18 @@
                 <div class="panel-heading">Tavern Forum</div>
 
                 <div class="panel-body">
-                    <ul>
+                    <ul id="topics-list">
                     @foreach ($topics as $topic)
-                        <li><a href="{{ url('/topic/' . $topic->id) }}">{{ $topic->title }}</a></li>
+                        <li>
+                            <a href="{{ url('/topic/' . $topic->id) }}"><h4>{{ $topic->title }}</h4></a>
+                            <p class="help-block">By {{ $topic->user->name }} at {{ $topic->created_at->format('d/m/Y h:m') }}</p>
+                        </li>
                     @endforeach
                     </ul>
+
+                    <div class="paginate">
+                        {{ $topics->links() }}
+                    </div>
                 </div>
             </div>
         </div>
